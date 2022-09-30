@@ -1,0 +1,20 @@
+{
+  "contracts": {
+    "DappToken": "26d50ea2f0662a8bdb4d682d31294029d877318a",
+    "LinkToken": "49e7bae2df618e81d877632c6ad55872ff2ce801",
+    "MockDAI": "6ff3ec41379375896064d4b1c1b6f99e381dc7d3",
+    "MockERC20": "e64c50237f6c0384e7c434b5d4a7d80e6a5677f3",
+    "MockOracle": "7f09d8b642ed1af8d9a3e094ab619f25db4db23c",
+    "MockV3Aggregator": "9e734e161b5cafcca52a917f10266f5a8bc05b28",
+    "MockWETH": "2837f35cb0087f8dc194f7fbc3095d8c20fe477e",
+    "OpenZeppelin/openzeppelin-contracts@4.7.3/ERC20": "38166fcfbc8e730a0752b73e497cde48b5457655",
+    "TokenFarm": "d707a995fb37f7115332cdad27a0997e1f596c12",
+    "VRFCoordinatorMock": "a234e721cab3c47e532d8404949512e63f344855",
+    "smartcontractkit/chainlink@1.8.0/BasicToken": "92084ac5279a2a3db988d9e01d7e6d3e3a4dab8d",
+    "smartcontractkit/chainlink@1.8.0/SafeMathChainlink": "bf84f5dba942291289c80f271862cb515ce813ab",
+    "smartcontractkit/chainlink@1.8.0/StandardToken": "7f21b0e2f1d1fcf89f4466183c9e73bc3cf77276",
+    "smartcontractkit/chainlink@1.8.0/VRFRequestIDBase": "73df0a6f5d0123eb2b2db0faf62b602aa77c123a"
+  },
+  "tests": {},
+  "tx": {}
+}

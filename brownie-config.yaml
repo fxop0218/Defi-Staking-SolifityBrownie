@@ -8,7 +8,7 @@ compiler:
       - "@chainlink=smartcontractkit/chainlink@1.8.0"
 dotenv: .env
 wallets:
-  private_key: ${PRIVATE_KEY}
+  from_key: ${PRIVATE_KEY}
 networks:
   development:
     verify: False
