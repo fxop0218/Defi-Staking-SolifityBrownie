@@ -1,5 +1,5 @@
-import {useEthers} from "@usedapp/core"
-import {Button, makeStyles} from "@material-ui/core"
+import { Button, makeStyles } from "@material-ui/core"
+import { useEthers } from "@usedapp/core"
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -10,21 +10,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
+
 export const Header = () => {
-    const classes = useStyles(); 
-    const {activateBrowserWallet, account, deactivate, chainId} = useEthers();
-    console.log("Chain Id: " + chainId)
+    const classes = useStyles()
+
+    const { account, activateBrowserWallet, deactivate } = useEthers()
+
     const isConnected = account !== undefined
-    
-    return(
+
+    return (
         <div className={classes.container}>
-            <div>
-                {isConnected ? (
-                    <button color="primary" onClick={deactivate}>Disconect</button>
-                ) : (
-                    <button color="primary" onClick={() => activateBrowserWallet()}>Connect</button>)}
-            </div>
-        {account && <p>Account: {account}</p>}
-      </div>
+            {isConnected ? (
+                <Button variant="contained" onClick={deactivate}>
+                    Disconnect
+                </Button>
+            ) : (
+                <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={() => activateBrowserWallet()}
+                >
+                    Connect
+                </Button>
+            )}
+        </div>
     )
 }
+

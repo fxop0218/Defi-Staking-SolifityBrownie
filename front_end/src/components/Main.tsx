@@ -1,26 +1,65 @@
-import {useEthers} from "@usedapp/core"
+/* eslint-disable spaced-comment */
+/// <reference types="react-scripts" />
+import { useEthers } from "@usedapp/core"
 import helperConfig from "../helper-config.json"
 import networkMapping from "../chain-info/deployments/map.json"
 import { constants } from "ethers"
 import brownieConfig from "../brownie-config.json"
-import { useWeb3React } from '@web3-react/core'
-import { Web3Provider } from '@ethersproject/providers'
+import dapp from "../dapp.png"
+import eth from "../eth.png"
+import dai from "../dai.png"
+import { YourWallet } from "./yourWallet"
+import { makeStyles } from "@material-ui/core"
+
+export type Token = {
+    image: string
+    address: string
+    name: string
+}
+
+const useStyles = makeStyles((theme) => ({
+    title: {
+        color: theme.palette.common.white,
+        textAlign: "center",
+        padding: theme.spacing(4)
+    }
+}))
 
 export const Main = () => {
-    // Show token vlues from the wallet
+    // Show token values from the wallet
+    // Get the address of different tokens
+    // Get the balance of the users wallet
 
-    // get the address of differents values
-    // Get the valance of the users walle
-    
-
-    const { chainId, account, activate, active,library } = useWeb3React<Web3Provider>()
-    console.log("Chain id: " + chainId)
-
+    // send the brownie-config to our `src` folder
+    // send the build folder
+    const classes = useStyles()
+    const { chainId, error } = useEthers()
     const networkName = chainId ? helperConfig[chainId] : "dev"
+    let stringChainId = String(chainId)
+    const dappTokenAddress = chainId ? networkMapping[stringChainId]["DappToken"][0] : constants.AddressZero
+    const wethTokenAddress = chainId ? brownieConfig["networks"][networkName]["weth_token"] : constants.AddressZero // brownie config
+    const fauTokenAddress = chainId ? brownieConfig["networks"][networkName]["fau_token"] : constants.AddressZero
 
+    const supportedTokens: Array<Token> = [
+        {
+            image: dapp,
+            address: dappTokenAddress,
+            name: "DAPP"
+        },
+        {
+            image: eth,
+            address: wethTokenAddress,
+            name: "WETH"
+        },
+        {
+            image: dai,
+            address: fauTokenAddress,
+            name: "DAI"
+        }
+    ]
 
-    const dappTokenAddress = chainId ? networkMapping[String(chainId)]["DappToken"][0] : constants.AddressZero;
-    const wethTokenAddress = chainId ? brownieConfig["networks"][networkName]["weth_token"] : constants.AddressZero; // get from brownie config
-    const fauTokenAddress = chainId ? brownieConfig["networks"][networkName]["fau_token"] : constants.AddressZero;
-    return(<div>Hi! MDFK</div>)
+    return (<>
+        <h2 className={classes.title}>Dapp Token App</h2>
+        <YourWallet supportedTokens={supportedTokens} />
+    </>)
 }

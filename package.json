@@ -1,0 +1,30 @@
+{
+  "name": "defi-stake-brownie-solidity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "react": "^18.2.0",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxop0218/Defi-Staking-SolifityBrownie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fxop0218/Defi-Staking-SolifityBrownie/issues"
+  },
+  "homepage": "https://github.com/fxop0218/Defi-Staking-SolifityBrownie#readme"
+}

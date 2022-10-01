@@ -1,25 +1,24 @@
-import React from 'react';
-import { DAppProvider, Goerli, Config } from '@usedapp/core';
-import {Header} from "./components/Header"
-import {Main} from "./components/Main"
-import { getDefaultProvider } from 'ethers';
-import { Container } from "@material-ui/core";
+import React from 'react'
+import { ChainId, DAppProvider } from "@usedapp/core"
+import { Header } from "./components/Header"
+import { Container } from "@material-ui/core"
+import { Main } from "./components/Main"
 
 function App() {
-  const config: Config = {
-    readOnlyUrls: {
-      [Goerli.chainId]: getDefaultProvider('goerli'),
-    },
-  }
-
   return (
-    <DAppProvider config={config}>
-      <Header/>
+    <DAppProvider config={{
+      supportedChains: [ChainId.Kovan],
+      notifications: {
+        expirationPeriod: 1000,
+        checkInterval: 1000
+      }
+    }}>
+      <Header />
       <Container maxWidth="md">
-        <Main/>
+        <Main />
       </Container>
     </DAppProvider>
-  );
+  )
 }
 
-export default App;
+export default App
